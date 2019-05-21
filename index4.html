@@ -27,8 +27,8 @@ function refrescarUbicacion(){
 		 navigator.geolocation.getCurrentPosition(showPosition,showError);
 		 function showPosition(position)
 		 {
-			 lat=position.coords.latitude;
-			 lon=position.coords.longitude;
+			 lat=position.coords.latitud;
+			 lon=position.coords.longitud;
 			 latlon=new google.maps.LatLng(lat,lon)
     mapholder = document.getElementById('mapholder')
 	mapholder.style.height ='500px';
