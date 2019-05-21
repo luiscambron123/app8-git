@@ -12,6 +12,7 @@ if(navigator.geolocation){
 	navigator.geolocation.getCurrentPosition (mostrarUbicacion);
 }else{alert("¡Error! Este navegador no soporta la Geolocalizacion.");}
 function refrescarUbicacion(){
+	navigator.geolocation.watchPosition(mostrarUbicacion);}
 	</script>
     
     <!--Se escribe un mapa con la geolocalizacion anterior-->
