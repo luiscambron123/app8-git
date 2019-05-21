@@ -15,9 +15,9 @@ function refrescarUbicacion(){
 	navigator.geolocation.watchPosition(mostrarUbicacion);}
 	</script>
     
-    <!--Se escribe un mapa con la geolocalizacion anterior-->
+    <!--Se escribe un mapa con la localizacion anterior-->
     <div id="demo"></div>
-     <div id="mapholder"></div>
+    <div id="mapholder"></div>
      <script src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
      
      <button onClick="cargarmap()">Cargar mapa</button>
@@ -31,13 +31,13 @@ function refrescarUbicacion(){
 			 lon=position.coords.longitude;
 			 latlon=new google.maps.LatLng(lat,lon)
     mapholder = document.getElementById('mapholder')
-	mapholder.style.height = '500px';
-	mapholder.style.width = '750px';
+	mapholder.style.height ='500px';
+	mapholder.style.width ='750px';
 	var myOptions={
 		center:latlon,zoom:15,
 		mapTypeld:google.maps.MapTypeld.ROADMAP,
 		mapTypeControl:false,
-		navigatonControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+		navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
 	};
 	var map = new google.maps.Map(document.getElementById("mapholder"),myOptions);
 	var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
