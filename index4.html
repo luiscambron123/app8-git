@@ -1,66 +1,66 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta charset="utf-8">
-<title> Ubicacion en el mapa de Google </title>
+<meta charset="UTF-8">
+<title> Ubicación en el mapa de google</title>
 </head>
 <body>
-<!--Se determina la localizacion-->
-<div id="ubicacion"</div>
+<!--Se determina la localización-->
+<div id='ubicacion'></div>
 <script type="text/javascript">
-if(navigator.geolocation){
-	navigator.geolocation.getCurrentPosition(mostrarubicacion);
-}else{alert("!Error¡Este navegador no soporta la Geolocalizacion.");}
-function refrescarubicacion(){
-	navigator.geolocation.watchPosition(mostrarubicacion);}
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition  (mostrarUbicacion);
+} else {alert("¡Error! Este navegador no soporta la Geolocalización.");}
+function refresacarUbicacion(){
+	navigator.geolocation.watchPosition(mostrarUbicacion);}
 	</script>
     
-    <!--Se escribe un mapa con la localizacion anterior-->
+    <!--Se escribe un mapa con la localización anterior-->
     <div id="demo"></div>
     <div id="mapholder"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
     
-    <button onClick="cargarmap()">Cargar Mapa</button>
+    <button onclick="cargarmap()">Cargar mapa</button>
     <script type="text/javascript">
-	var x = document.getElementById("demo");
+	var x=document.getElementById("demo");
 	function cargarmap(){
-		navigator.geolocation.getCurrentPosition(showPosition,showError);
-		function showPosition(position)
-		{
-			lat = position.coords.latitude;
-			lon = position.coords.longitude;
-			latlon = new google.maps.LatLng(lat,lon)
-			mapholder = document.getElementById('mapholder')
-			mapholder.style.height = '500px';
-			mapholder.style.width = '750px';
-			var myOptions = {
+	navigator.geolocation.getCurrentPosition  (showPosition,showError);
+	function showPosition(position)
+	{
+		lat=position.coords.latitude;
+		lon=position.coords.longitude;
+		latlon=new google.maps.LatLng(lat,lon)
+			mapholder=document.getElementById('mapholder')
+			mapholder.style.height='500px';
+			mapholder.style.width='750px';
+			var myOptions={
 				center:latlon,zoom:15,
-				mapTypeld:google.maps.MapTypeld.ROADMAP,
-				mapTypeControl:false,
+				mapTypeId:google.maps.MapTypeId.ROADMAP,
+				mapTypeControl: false,
 				navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
 			};
-			var map = new google.maps.Map(document.getElementById("mapholder"),myOptions);
-			var marker = new  google.maps.Marker({position:latlon,map:map,title:"You are here!"})
-		}
-		function showError(error)
+			var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+			var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+	}
+	function showError(error)
+	{
+		switch(error.code)
 		{
-			switch(error.code)
-			{
-				case error.PERMISSION_DENIED:
-				x.innerHTML="Denegada la peticion de Geolocalizador."
-				break;
-				case error.POSITION_UNAVAILABLE:
-				x.innerHTML="La informacion de la localizacion no esta disponible."
-				break;
-				case error.TIMEOUT:
-				x.innerHTML="El tiempo de peticion ha expirado"
-				break;
-				case error.UNKNOWN_ERROR:
-				x.innerHTML="Ha ocurrido un error desconocido."
-				break;
-			}
-		}}
-		</script>
-        
-        </body>
-        </html>
+			case error.PERMISSION_DENIED:
+			x.innerHTML="Denegada la peticion de Geolocalización en el navegador."
+			break;
+			case error.POSITION_UNAVAILABLE:
+			x.innerHTML="La información de la locañización no esta disponible"
+			break;
+			case error.TIMEOUT:
+			x.innerHTML="El tiempo de peticion ha expirado."
+			break;
+			case error.UNKNOWN_ERROR:
+			x.innerHTML="Ha ocurrido un error desconocido"
+			break;
+		}
+	}}
+	</script>
+	
+	</body>
+	</html>
